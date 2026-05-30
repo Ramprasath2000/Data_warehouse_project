@@ -1,0 +1,48 @@
+--checking the datas
+select TOP(1000) *
+FROM bronze.crm_cust_info;
+
+--switching to the required DB
+USe DataWarehouse;
+--Confirming the duplicatte records
+SELECT * from bronze.crm_cust_info
+WHERE cst_id = 29449;
+
+
+
+----Identifyinng duplicate records
+select cst_id, COUNT(*) as total_cus
+from bronze.crm_cust_info
+group by cst_id
+HAVING COUNT(*) > 1 or cst_id IS NULL;
+
+
+--Filtering out the duplicate records
+SELECT *
+FROM 
+(
+select *, ROW_NUMBER() OVER(PARTITION BY cst_id ORDER BY cst_create_date DESC) as flag_last
+FROM bronze.crm_cust_info
+--where cst_id = 29449
+) ordered_table where flag_last = 1;
+
+
+--check unwanted spaces first name
+select * from bronze.crm_cust_info 
+where cst_firstname != TrIM(cst_firstname);
+
+--check unwanted spaces last name
+select * from bronze.crm_cust_info 
+where cst_lastname != TrIM(cst_lastname);
+
+--check unwanted spaces marital status
+select * from bronze.crm_cust_info 
+where cst_gndr != TrIM(cst_gndr);
+
+
+----Data standardisation , check the different values present
+select DISTINCT cst_marital_status
+FROM bronze.crm_cust_info;
+
+select DISTINCT cst_gndr
+FROM bronze.crm_cust_info;
