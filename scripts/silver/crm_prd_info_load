@@ -8,7 +8,6 @@ prd_line,
 prd_start_dt,
 prd_end_dt
 )
-
 SELECT 
 prd_id, 
 REPLACE(SUBSTRING(prd_key, 1, 5),'-', '_' ) AS cat_id,
