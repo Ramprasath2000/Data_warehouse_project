@@ -52,10 +52,10 @@ dwh_create_date DATETIME2 DEFAULT GETDATE()
 IF OBJECT_ID('silver.erp_LOC_A101', 'U') IS NOT NULL
 	DROP TABLE silver.erp_LOC_A101;
 create table silver.erp_LOC_A101(
-cid NVARCHAR(50),CNTRY NVARCHAR(50),
+cid NVARCHAR(50),cntry NVARCHAR(50),
 dwh_create_date DATETIME2 DEFAULT GETDATE()
 
-)
+);
 
 IF OBJECT_ID('silver.erp_PX_CAT_G1V2', 'U') IS NOT NULL
 	DROP TABLE silver.erp_PX_CAT_G1V2;
