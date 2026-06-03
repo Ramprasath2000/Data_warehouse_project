@@ -1,0 +1,23 @@
+
+USE DataWarehouse;
+GO;
+
+---primary key duplicate check
+select count(*) as total_count, prd_id from
+bronze.crm_prd_info
+group by prd_id 
+Having count(*) > 1;
+
+---space check
+SELECT * from silver.crm_prd_info
+where TRIM(prd_nm) != prd_nm;
+
+---check the cost, if any negative or null
+select * from silver.crm_prd_info
+where prd_cost < 0  OR prd_cost IS NULL ;
+
+
+--- Product Invalid date order
+
+select * from silver.crm_prd_info
+where prd_start_dt > prd_end_dt;
