@@ -1,11 +1,3 @@
-/* 
-=======================================
-DDL SCRIPT:  CREATE BRONZE TABLE
-======================================
-This script creates table in the 'bronze' schema, dropping existing tables if they already exists.
-Run this script to re-define  the DDL structure  of the 'bronze' table
-*/
-
 IF OBJECT_ID('bronze.crm_cust_info', 'U') IS NOT NULL
 	DROP TABLE bronze.crm_cust_info;
 create table bronze.crm_cust_info (
@@ -44,17 +36,17 @@ IF OBJECT_ID('bronze.crm_sales_details', 'U') IS NOT NULL
 		sls_price INT
 );
 
-IF OBJECT_ID('bronze.erp_LOC_A101', 'U') IS NOT NULL
-	DROP TABLE bronze.erp_LOC_A101;
-	create table bronze.erp_LOC_A101(
+IF OBJECT_ID('bronze.erp_loc_a101', 'U') IS NOT NULL
+	DROP TABLE bronze.erp_loc_a101;
+	create table bronze.erp_loc_a101(
 		cid NVARCHAR(50),
 		cntry NVARCHAR(50)
 
 )
 
-IF OBJECT_ID('bronze.erp_PX_CAT_G1V2', 'U') IS NOT NULL
-	DROP TABLE bronze.erp_PX_CAT_G1V2;
-	create table bronze.erp_PX_CAT_G1V2(
+IF OBJECT_ID('bronze.erp_px_cat_g1v2', 'U') IS NOT NULL
+	DROP TABLE bronze.erp_px_cat_g1v2;
+	create table bronze.erp_px_cat_g1v2(
 		id NVARCHAR(50),
 		cat NVARCHAR(50),
 		subcat NVARCHAR(50),
@@ -62,8 +54,8 @@ IF OBJECT_ID('bronze.erp_PX_CAT_G1V2', 'U') IS NOT NULL
 )
 
 
-IF OBJECT_ID('bronze.crm_sales_details', 'U') IS NOT NULL
-	DROP TABLE bronze.crm_sales_details;
+IF OBJECT_ID('bronze.erp_cust_az12', 'U') IS NOT NULL
+	DROP TABLE bronze.erp_cust_az12;
 create table bronze.erp_cust_az12 (
 	cid NVARCHAR(50),
 	bdate DATE,
