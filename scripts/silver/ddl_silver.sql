@@ -59,7 +59,7 @@ create table silver.erp_loc_a101(
 
 IF OBJECT_ID('silver.erp_px_cat_g1v2', 'U') IS NOT NULL
 	DROP TABLE silver.erp_px_cat_g1v2;
-	create table silver.erp_px_cat_g1v	2(
+	create table silver.erp_px_cat_g1v2(
 		id NVARCHAR(50),
 		cat NVARCHAR(50),
 		subcat NVARCHAR(50),
