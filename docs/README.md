@@ -1,0 +1,9 @@
+| Column Name | Data Type |
+|---|---|
+| transaction_id | STRING |
+| symbol | STRING |
+| price | FLOAT64 |
+| previous_avg_price | FLOAT64 |
+| deviation_percent | FLOAT64 |
+| anomaly_type | STRING |
+| detected_at | TIMESTAMP |
